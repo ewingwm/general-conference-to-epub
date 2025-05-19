@@ -33,7 +33,7 @@ final_epub = pypub.Epub('General Conference April 2025')
 for link in links:
     talk = requests.get(link)
     talk_text = talk.text
-    talk_text = clean_html(talk_text, {'h1', 'p', 'sup'})
+    # talk_text = clean_html(talk_text, {'h1', 'p', 'sup', 'head', 'title'})
     with tempfile.NamedTemporaryFile('w+', delete=False, suffix='.html') as tmp:
         tmp.write(talk_text)
         tmp.seek(0)
